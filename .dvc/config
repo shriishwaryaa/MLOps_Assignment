@@ -1,0 +1,6 @@
+[core]
+    remote = storage
+[cache]
+    dir = ../../external_cache
+['remote "storage"']
+    url = s3://mlopsassignment180100112/datastore/
