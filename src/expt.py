@@ -4,7 +4,7 @@ import joblib
 import json
 from sklearn.metrics import f1_score
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 def getData():
     with dvc.api.open(repo="https://github.com/shriishwaryaa/MLOps_Assignment", path="data/creditcard.csv", mode="r") as fd:
@@ -29,7 +29,7 @@ def trainModel():
     X_train = train[train.columns[:-1]]
     y_train = train[train.columns[-1]]
 
-    model = DecisionTreeClassifier(min_samples_split=15, random_state=1, criterion="entropy")
+    model = RandomForestClassifier(n_estimators = 100, random_state=1, criterion="entropy")
     model.fit(X_train, y_train)
     return model
 
